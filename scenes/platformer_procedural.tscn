@@ -1,15 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://kekpsfc546h0"]
+[gd_scene load_steps=16 format=3 uid="uid://bxy0jmhakmvtj"]
 
-[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="1_yexym"]
-[ext_resource type="Script" path="res://addons/gaea/modifiers/2D/fill.gd" id="2_cg1ct"]
-[ext_resource type="Script" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="3_s1vjc"]
-[ext_resource type="Script" path="res://addons/gaea/modifiers/2D/walls.gd" id="4_xetsc"]
-[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="5_boc7r"]
-[ext_resource type="Script" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="6_12adg"]
-[ext_resource type="Texture2D" uid="uid://7jrbmxww080p" path="res://artwork/ArtForWalker-GaeaTutorial.png" id="7_mos5m"]
+[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="1_kupbs"]
+[ext_resource type="Script" path="res://addons/gaea/modifiers/2D/fill.gd" id="2_8rfe6"]
+[ext_resource type="Script" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="3_ymksb"]
+[ext_resource type="Script" path="res://addons/gaea/modifiers/2D/walls.gd" id="4_5ev0l"]
+[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="5_ek4tp"]
+[ext_resource type="Script" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="6_oi3qt"]
+[ext_resource type="Texture2D" uid="uid://7jrbmxww080p" path="res://artwork/ArtForWalker-GaeaTutorial.png" id="7_pnp1o"]
 
 [sub_resource type="Resource" id="Resource_qgag7"]
-script = ExtResource("3_s1vjc")
+script = ExtResource("3_ymksb")
 type = 1
 tilemap_layer = 0
 terrain_set = 0
@@ -18,7 +18,7 @@ id = ""
 layer = 0
 
 [sub_resource type="Resource" id="Resource_n8sdr"]
-script = ExtResource("2_cg1ct")
+script = ExtResource("2_8rfe6")
 tile = SubResource("Resource_qgag7")
 expand_left = 15
 expand_top = 15
@@ -28,7 +28,7 @@ affected_layers = Array[int]([0])
 filter_type = 0
 
 [sub_resource type="Resource" id="Resource_ha1kw"]
-script = ExtResource("3_s1vjc")
+script = ExtResource("3_ymksb")
 type = 1
 tilemap_layer = 0
 terrain_set = 0
@@ -37,13 +37,13 @@ id = ""
 layer = 0
 
 [sub_resource type="Resource" id="Resource_qghaf"]
-script = ExtResource("4_xetsc")
+script = ExtResource("4_5ev0l")
 wall_tile = SubResource("Resource_ha1kw")
 affected_layers = Array[int]([0])
 filter_type = 0
 
 [sub_resource type="Resource" id="Resource_sd8db"]
-script = ExtResource("3_s1vjc")
+script = ExtResource("3_ymksb")
 type = 1
 tilemap_layer = 0
 terrain_set = 0
@@ -53,7 +53,7 @@ layer = 0
 
 [sub_resource type="Resource" id="Resource_ts4d1"]
 resource_name = "Settings"
-script = ExtResource("5_boc7r")
+script = ExtResource("5_ek4tp")
 tile = SubResource("Resource_sd8db")
 fullness_check = 0
 max_tiles = 450
@@ -69,7 +69,7 @@ Vector2i(3, 3): 0.1
 modifiers = Array[Resource("res://addons/gaea/modifiers/2D/modifier_2d.gd")]([SubResource("Resource_n8sdr"), SubResource("Resource_qghaf")])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eosp2"]
-texture = ExtResource("7_mos5m")
+texture = ExtResource("7_pnp1o")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 2
@@ -199,12 +199,12 @@ sources/0 = SubResource("TileSetAtlasSource_eosp2")
 [node name="RogueLike_World_Generation" type="Node2D"]
 
 [node name="WalkerGenerator" type="Node" parent="."]
-script = ExtResource("1_yexym")
+script = ExtResource("1_kupbs")
 settings = SubResource("Resource_ts4d1")
 editor_preview = true
 
 [node name="TilemapGaeaRenderer" type="Node" parent="." node_paths=PackedStringArray("tile_map", "generator")]
-script = ExtResource("6_12adg")
+script = ExtResource("6_oi3qt")
 tile_map = NodePath("../TileMap")
 generator = NodePath("../WalkerGenerator")
 
